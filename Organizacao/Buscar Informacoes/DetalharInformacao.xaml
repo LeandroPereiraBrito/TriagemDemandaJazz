@@ -1,0 +1,242 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="DetalharInformacao" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_id" Type="InArgument(x:String)" />
+    <x:Property Name="in_linha" Type="InArgument(x:Int32)" />
+    <x:Property Name="out_evedenciaFile" Type="OutArgument(x:String)" />
+  </x:Members>
+  <this:DetalharInformacao.in_id>
+    <InArgument x:TypeArguments="x:String" />
+  </this:DetalharInformacao.in_id>
+  <this:DetalharInformacao.in_linha>
+    <InArgument x:TypeArguments="x:Int32" />
+  </this:DetalharInformacao.in_linha>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1143,2241</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>DetalharInformacao_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="50">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="34">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Entra no detalhe da solicitação para buscar as informações a serem verifcadas&#xD;&#xA;" DisplayName="DetalharInformacao" sap:VirtualizedContainerService.HintSize="454,2176" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="responsavelHub" />
+      <Variable x:TypeArguments="x:String" Name="contexto" />
+      <Variable x:TypeArguments="x:String" Name="necessidade" />
+      <Variable x:TypeArguments="x:String" Name="expectativa" />
+      <Variable x:TypeArguments="x:String" Name="aaname" />
+      <Variable x:TypeArguments="x:Boolean" Default="False" Name="msnExist" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Assign DisplayName="Gerar nome para o processamento" sap:VirtualizedContainerService.HintSize="412,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[aaname]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">["Demanda "+in_id]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:InterruptibleWhile DisplayName="Enquanto a pagina no for carregado" sap:VirtualizedContainerService.HintSize="412,363" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
+      <ui:InterruptibleWhile.Body>
+        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,198" sap2010:WorkflowViewState.IdRef="Sequence_7">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:UiElementExists DisplayName="Element Exists 'SPAN'" Exists="[msnExist]" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+            <ui:UiElementExists.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="16558076-4400-476f-a993-d11bea988c68" InformativeScreenshot="d65df98bd0f430fc3148b5c6eb376961" Selector="&lt;html title='Demanda *' /&gt;&lt;webctrl aaname='{{aaname}}' parentid='com_ibm_team_workitem_web_ui_internal_view_editor_WorkItemEditor*' tag='SPAN' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:UiElementExists.Target>
+          </ui:UiElementExists>
+        </Sequence>
+      </ui:InterruptibleWhile.Body>
+      <ui:InterruptibleWhile.Condition>
+        <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="msnExist &lt;&gt; True" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
+      </ui:InterruptibleWhile.Condition>
+    </ui:InterruptibleWhile>
+    <ui:InjectJsScript DisplayName="Responsavel Hub" sap:VirtualizedContainerService.HintSize="412,134" sap2010:WorkflowViewState.IdRef="InjectJsScript_5" InputParameter="hub" ScriptCode="JS\buscaInformacao.js">
+      <ui:InjectJsScript.ScriptOutput>
+        <OutArgument x:TypeArguments="x:String">[responsavelHub]</OutArgument>
+      </ui:InjectJsScript.ScriptOutput>
+      <ui:InjectJsScript.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5fd1eb43-9a3f-4eb9-bcae-3a69d86e0519" InformativeScreenshot="3a7de5208dc4877f416d4e222b7782de" Selector="&lt;html title='Demanda *' /&gt;&lt;webctrl id='com_ibm_team_workitem_web_ui_internal_view_layout_TwoColumnLayou*' tag='DIV' /&gt;">
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </ui:InjectJsScript.Target>
+    </ui:InjectJsScript>
+    <ui:InjectJsScript DisplayName="contexto" sap:VirtualizedContainerService.HintSize="412,96" sap2010:WorkflowViewState.IdRef="InjectJsScript_6" InputParameter="contexto" ScriptCode="JS\buscaInformacao.js">
+      <ui:InjectJsScript.ScriptOutput>
+        <OutArgument x:TypeArguments="x:String">[contexto]</OutArgument>
+      </ui:InjectJsScript.ScriptOutput>
+      <ui:InjectJsScript.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5fd1eb43-9a3f-4eb9-bcae-3a69d86e0519" Selector="&lt;html title='Demanda *' /&gt;&lt;webctrl id='com_ibm_team_workitem_web_ui_internal_view_layout_TwoColumnLayou*' tag='DIV' /&gt;">
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </ui:InjectJsScript.Target>
+    </ui:InjectJsScript>
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GerarPython workflow" sap:VirtualizedContainerService.HintSize="412,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="IA\GerarPython.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_nameFilePy">contexto.py</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_texto">[contexto]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_csvName">../Data/Contexto.csv</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_id">[in_id]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InjectJsScript DisplayName="Necessidade" sap:VirtualizedContainerService.HintSize="412,96" sap2010:WorkflowViewState.IdRef="InjectJsScript_7" InputParameter="necessidade" ScriptCode="JS\buscaInformacao.js">
+      <ui:InjectJsScript.ScriptOutput>
+        <OutArgument x:TypeArguments="x:String">[necessidade]</OutArgument>
+      </ui:InjectJsScript.ScriptOutput>
+      <ui:InjectJsScript.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5fd1eb43-9a3f-4eb9-bcae-3a69d86e0519" Selector="&lt;html title='Demanda *' /&gt;&lt;webctrl id='com_ibm_team_workitem_web_ui_internal_view_layout_TwoColumnLayou*' tag='DIV' /&gt;">
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </ui:InjectJsScript.Target>
+    </ui:InjectJsScript>
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GerarPython workflow" sap:VirtualizedContainerService.HintSize="412,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="IA\GerarPython.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_nameFilePy">Necessidade.py</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_texto">[necessidade]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_csvName">../Data/Necessidade.csv</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_id">[in_id]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InjectJsScript DisplayName="expectativa" sap:VirtualizedContainerService.HintSize="412,96" sap2010:WorkflowViewState.IdRef="InjectJsScript_8" InputParameter="expectativa" ScriptCode="JS\buscaInformacao.js">
+      <ui:InjectJsScript.ScriptOutput>
+        <OutArgument x:TypeArguments="x:String">[expectativa]</OutArgument>
+      </ui:InjectJsScript.ScriptOutput>
+      <ui:InjectJsScript.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5fd1eb43-9a3f-4eb9-bcae-3a69d86e0519" Selector="&lt;html title='Demanda *' /&gt;&lt;webctrl id='com_ibm_team_workitem_web_ui_internal_view_layout_TwoColumnLayou*' tag='DIV' /&gt;">
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </ui:InjectJsScript.Target>
+    </ui:InjectJsScript>
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GerarPython workflow" sap:VirtualizedContainerService.HintSize="412,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="IA\GerarPython.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_nameFilePy">Expectativa.py</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_texto">[expectativa]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_csvName">../Data/Expectativa.csv</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_id">[in_id]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GerarBat workflow" sap:VirtualizedContainerService.HintSize="412,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="IA\GerarBat.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <scg:Dictionary x:TypeArguments="x:String, Argument" />
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GerarEvidencia workflow" sap:VirtualizedContainerService.HintSize="412,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Organizacao\Buscar Informacoes\GerarEvidencia.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_id">[in_id]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_necessidade">[necessidade]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_contexto">[contexto]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_responsavelHub">[responsavelHub]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_expectativa">[expectativa]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_linha">[in_linha]</InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_evidenciaFile">[out_evedenciaFile]</OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InjectJsScript InputParameter="{x:Null}" ScriptOutput="{x:Null}" DisplayName="Limpar Cache" sap:VirtualizedContainerService.HintSize="412,96" sap2010:WorkflowViewState.IdRef="InjectJsScript_9" ScriptCode="JS\limparCache.js">
+      <ui:InjectJsScript.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5fd1eb43-9a3f-4eb9-bcae-3a69d86e0519" Selector="&lt;html title='Demanda *' /&gt;&lt;webctrl id='com_ibm_team_workitem_web_ui_internal_view_layout_TwoColumnLayou*' tag='DIV' /&gt;">
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </ui:InjectJsScript.Target>
+    </ui:InjectJsScript>
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="412,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[responsavelHub+&quot;-----&quot;+contexto+&quot; ----- &quot;+necessidade]" />
+  </Sequence>
+</Activity>
